@@ -1,0 +1,29 @@
+<div class="model-content">
+	<div class="modal-header">
+		<h4>{{title}}</h4>
+	</div>
+	<div class="modal-body">
+		<center>
+			<div class="image-upload" >
+				<label for="thumbload">
+					<img src="images/icons/icon-plus.png"/>
+				</label>		    
+				<input accept="image/*" id="thumbload" type="file" onchange="angular.element(this).scope().addImage()" ng-disabled="fieldsEnabled" />
+			</div>
+		</center>
+		<canvas style='width:558px;height:475px' id='thumbCanvas' ng-show="pictureLoaded"></canvas>
+		<center>
+			<div>
+				<img src="images/icons/icon-zoomin.png" ng-show="pictureLoaded" ng-click="zoomIn()"/>
+				<img src="images/icons/icon-zoomout.png"ng-show="pictureLoaded" ng-click="zoomOut()"/>
+			</div>
+		</center>
+		<label for='thumbText' ng-show="pictureLoaded">Thumbnail text</label>
+		<input id='thumbText' ng-model="text" ng-show="pictureLoaded" class='form-control' type='text' ng-disabled="fieldsEnabled">
+	</div>
+	<div class="modal-footer">
+		<a href='' class='btn btn-primary' ng-click='check()' ng-disabled="fieldsEnabled">send</a>
+		<a href='' class='btn btn-default' ng-click='close()' ng-disabled="fieldsEnabled">cancel</a>
+	</div>
+</div>
+

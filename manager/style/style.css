@@ -1,0 +1,248 @@
+@font-face {
+    font-family: 'source_sans_prolight';
+    src: url('../fonts/sourcesanspro-light-webfont.eot');
+    src: url('../fonts/sourcesanspro-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-light-webfont.woff') format('woff'),
+         url('../fonts/sourcesanspro-light-webfont.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-light-webfont.svg#source_sans_prolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_pro-semi';
+    src: url('../fonts/sourcesanspro-semibold.eot');
+    src: url('../fonts/sourcesanspro-semibold.eot') format('embedded-opentype'),
+         url('../fonts/sourcesanspro-semibold.woff') format('woff'),
+         url('../fonts/sourcesanspro-semibold.ttf') format('truetype'),
+         url('../fonts/sourcesanspro-semibold.svg#SourceSansProSemibold') format('svg');
+}
+
+body, html {
+    background-color: rgb(245, 245, 245 ) !important;
+}
+input, textarea, select, a { outline: none; }
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.jumbo-image {
+    width: 100%;
+    height: 350px;
+    margin-top: 60px;
+    padding: 0;
+    padding-left: 6px;
+    background-size: cover;
+    background-position: center;
+    background-image: url( '../images/jumbo-bg.jpg' );
+}
+
+.logoImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.brightnessList {
+    list-style-type: none;
+    width: 170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.brightnessList li {
+    float: left;
+}
+
+.footer {
+    background-color: black;
+    height: 50px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+
+/* menu */
+.menu-wrapper {
+    position: fixed;
+    padding: 0;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgb(245, 245, 245 );
+    color: white;
+}
+
+.menu-wrapper ul {
+    height: 30px;
+    width: 715px;
+    padding: 0px;
+    margin: 17px auto;
+}
+
+.menu-wrapper li {
+    float: left;
+    width: 143px;
+    height: 30px;
+    list-style-type: none;
+    text-align: center;
+}
+
+.menu-wrapper a {
+    color: black;
+    width: 100% !important;
+    height: 100%;
+    line-height: 9px;
+    letter-spacing: 1px;
+    
+    border-style: none;
+    border-collapse: black;
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-right-width: 0;
+    
+    font-family: 'source_sans_pro-semi';
+    font-size: 13px;
+}
+
+.brightnessButton {
+    margin-right: 5px;
+}
+
+.menu-wrapper a:hover {
+    background-color: transparent !important;
+    text-decoration: underline !important;
+}
+
+.menu-wrapper .active a {
+    text-decoration: underline;
+}
+
+
+.image-upload {
+	margin-top: 7px;
+}
+.image-upload > input
+{
+    display: none;
+}
+
+*:focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+.brightnessNotSelected {
+    opacity: .35;
+}
+
+.brightnessHidden {
+    visibility: hidden;
+}
+
+.titleEdit {
+	color: black !important;
+	border: 0px !important;
+    font-size: 32px;
+}
+
+.titleEdit:hover {
+/* 	color: #555 !important; */
+/* 	background-color: lightBlue; */
+}
+
+.paragraphEdit {
+    font-size: 15px;
+    color: black !important;
+}
+
+.paragraphEdit p:hover {
+/* 	color: #555; */
+/*     background-color: lightBlue; */
+}
+
+.newThumb {
+	position: relative;
+	width: 200px;
+	height: 170px;
+	border: 1px solid black;
+}
+
+.newThumb img{
+	position: absolute;
+	top: 72px;
+	left: 87px;
+}
+
+.rolls {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 73px;
+    left: 0;
+}
+
+.rolls img {
+    margin: auto 3px;
+}
+
+.roller {
+    z-index: 10;
+}
+
+.settingsButton {
+    width: 70px;
+    height: 34px;
+    position: fixed !important;
+    top: 13px;
+    left: 13px;
+    z-index: 1000 !important;
+    font-family: 'source_sans_pro-semi';
+}
+
+
+#fullscreenImage {
+
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.2);
+    z-index: 9000;
+
+}
+
+#fullscreenPicture {
+    max-width: 90%;
+    max-height: 90%;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    overflow: auto;
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.thumb-row {
+    margin-bottom: 43px;
+}
+
+.page p {
+    letter-spacing: 1px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+.page {
+    margin-bottom: 30px;
+}
+.page h3 {
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+

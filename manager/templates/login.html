@@ -1,0 +1,14 @@
+<div class="model-content">
+	<div class="modal-header">
+		<h3>Login</h3>
+	</div>
+	<div class="modal-body">
+		<label for="loginUsername">username</label>
+		<input type="text" class="form-control" id="loginUsername" auto-focus ng-enter="ok()" ng-disabled="!fieldsEnabled">
+		<label for="loginPassword">pw</label>
+		<input type="password" class="form-control" id="loginPassword" ng-enter="ok()" ng-disabled="!fieldsEnabled">
+	</div>
+	<div class="modal-footer">
+		<a class="btn btn-primary" ng-click="ok()" ng-disabled="!fieldsEnabled">ok</a>
+	</div>
+</div>

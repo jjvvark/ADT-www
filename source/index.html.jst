@@ -1,0 +1,272 @@
+{{define "template"}}<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=768"/>
+	<meta name="robots" content="index,follow"/>
+	<meta name="description" content="Atelier DT staat voor een veelzijdige uiting van elkaar inspirerende kunstvormen. Steen, hout of papier als basismateriaal bewerkt met verschillende technieken leiden altijd weer tot een verrassend resultaat met niet zelden de natuur als bron"/>
+	<meta name="keywords" content="atelier, beeldhouwen, tekeningen, hout en lamp, hout, lamp, te koop" />
+	<title>Atelier DT</title>
+	<link rel="shortcut icon" type="image/png" href="/favicon.png"/>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />	
+	<link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />	
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+</head>
+<body data-spy="scroll" data-target=".menu-wrapper" data-offset="100">
+
+<div class="menu-wrapper">
+	<ul class="nav">
+		<li>
+			<a href="#atelier">
+				{{.p.One.Title}}
+			</a>
+		</li>
+		<li>
+			<a href="#beeldhouwen">
+				{{.p.Two.Title}}
+			</a>
+		</li>
+		<li>
+			<a href="#fotografie" >
+				{{.p.Three.Title}}
+			</a>
+		</li>
+		<li>
+			<a href="#tekeningen">
+				{{.p.Four.Title}}
+			</a>
+		</li>
+		<li>
+			<a href="#advies" >
+				{{.p.Five.Title}}
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div class="jumbotron logo" id="logo">
+	<center>
+		<img src="images/logo-{{.p.LogoBrightness}}.png" data-src2x="images/logo-glow-{{.p.LogoBrightness}}@2.png" class="logoImage" />
+	</center>
+</div>
+
+<div class="container content">
+
+	<div  id="atelier">
+		<div class="row first-page">
+			<div class="col-sm-10 col-sm-offset-1 page-title">
+				<center>
+					<h3>
+						{{ .p.One.Title }}
+					</h3>
+					{{range .p.One.Paragraph}}<p>
+						{{.}}
+					</p>
+					{{end}}
+				</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<center>
+					<img src="images/title-header-one.jpg" class="img-responsive" />
+				</center>
+			</div>
+		</div>
+	</div>
+	
+	<div class="popup-gallery-beeldhouwen" id="beeldhouwen">
+		<div class="row page">
+			<div class="col-sm-10 col-sm-offset-1 page-title">
+				<center>
+					<h3>
+						{{.p.Two.Title}}
+					</h3>
+					{{range .p.Two.Paragraph}}<p>
+						{{.}}
+					</p>
+					{{end}}
+				</center>
+			</div>
+		</div>
+		{{range .g.one}}
+		<div class="row thumb-row">
+			{{range .}}
+			<div class="col-sm-3">
+				<center>
+					<a href="pics/one/{{.Id}}/image.jpg" title="{{.Text}}">
+						<img src="pics/one/{{.Id}}/thumb.jpg" class="image-responsive">
+					</a>
+				</center>
+			</div>
+			{{end}}
+		</div>
+		{{end}}
+	</div>
+	
+	<div class="popup-gallery-fotografie" id="fotografie">
+		<div class="row page">
+			<div class="col-sm-10 col-sm-offset-1 page-title">
+				<center>
+					<h3>
+						{{.p.Three.Title}}
+					</h3>
+					{{range .p.Three.Paragraph}}<p>
+						{{.}}
+					</p>
+					{{end}}
+				</center>
+			</div>
+		</div>
+		{{range .g.two}}
+		<div class="row thumb-row">
+			{{range .}}
+			<div class="col-sm-3">
+				<center>
+					<a href="pics/two/{{.Id}}/image.jpg" title="{{.Text}}">
+						<img src="pics/two/{{.Id}}/thumb.jpg" class="image-responsive">
+					</a>
+				</center>
+			</div>
+			{{end}}
+		</div>
+		{{end}}
+	</div>
+
+	<div class="popup-gallery-tekeningen" id="tekeningen">
+		<div class="row page">
+			<div class="col-sm-10 col-sm-offset-1 page-title">
+				<center>
+					<h3>
+						{{.p.Four.Title}}
+					</h3>
+					{{range .p.Four.Paragraph}}<p>
+						{{.}}
+					</p>
+					{{end}}
+				</center>
+			</div>
+		</div>
+		{{range .g.three}}
+		<div class="row thumb-row">
+			{{range .}}
+			<div class="col-sm-3">
+				<center>
+					<a href="pics/three/{{.Id}}/image.jpg" title="{{.Text}}">
+						<img src="pics/three/{{.Id}}/thumb.jpg" class="image-responsive">
+					</a>
+				</center>
+			</div>
+			{{end}}
+		</div>
+		{{end}}
+	</div>
+	
+	<div id="advies">
+		<div class="row page">
+			<div class="col-sm-10 col-sm-offset-1 page-title">
+				<center>
+					<h3>
+						{{.p.Five.Title}}
+					</h3>
+					{{range .p.Five.Paragraph}}<p>
+						{{.}}
+					</p>
+					{{end}}
+				</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<center>
+					<img src="images/title-header-two.jpg" class="img-responsive" />
+				</center>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="jumbotron colofoon">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<center>
+					<img src="images/dasja.jpg" class="img-responsive" style="margin-bottom:30px;"/>
+				</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12">
+				<center>
+					infoatelierdt@gmail.com&nbsp;&nbsp;&nbsp;06 11860050
+				</center>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 copyright">
+				<center>
+					&copy; 2014 AtelierDT
+				</center>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+(function(doc) {
+
+	var addEvent = 'addEventListener',
+	    type = 'gesturestart',
+	    qsa = 'querySelectorAll',
+	    scales = [1, 1],
+	    meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+
+	function fix() {
+		meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
+		doc.removeEventListener(type, fix, true);
+	}
+
+	if ((meta = meta[meta.length - 1]) && addEvent in doc) {
+		fix();
+		scales = [.25, 1.6];
+		doc[addEvent](type, fix, true);
+	}
+
+}(document));
+</script>
+
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.backstretch.js"></script>
+<script type="text/javascript" src="js/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/script.js"></script>
+<script type="text/javascript">
+
+Retina = function() {
+    return {
+        init: function(){
+            //Get pixel ratio and perform retina replacement
+            //Optionally, you may also check a cookie to see if the user has opted out of (or in to) retina support
+            var pixelRatio = !!window.devicePixelRatio ? window.devicePixelRatio : 1;
+            if (pixelRatio > 1) {
+                $("img").each(function(idx, el){
+                    el = $(el);
+                    if (el.attr("data-src2x")) {
+                        el.attr("data-src-orig", el.attr("src"));
+                        el.attr("src", el.attr("data-src2x"));
+                    }
+                });
+            }
+        }
+    };
+}();
+//Init
+Retina.init();
+
+</script>
+
+
+</body>
+</html>{{end}}

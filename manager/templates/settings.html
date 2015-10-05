@@ -1,0 +1,38 @@
+<div class="model-content">
+	<div class="modal-header">
+		<h4>Settings</h4>
+	</div>
+	<div class="modal-body">
+		<form class="form-horizontal" role="form">
+			<div class="form-group">
+				<label for="settingsModalUsername" class="col-sm-2 control-label">Username</label>
+	    		<div class="col-sm-10">
+	      			<input id="settingsModalUsername" type="text" class="form-control" placeholder="usernane" ng-model="person.username" ng-enter="check()" ng-disabled="fieldsEnabled">
+	    		</div>
+			</div>
+			<div class="form-group">
+				<label for="settingsModalPassword" class="col-sm-2 control-label">Password</label>
+	    		<div class="col-sm-10">
+	      			<input id="settingsModalPassword" type="password" class="form-control" placeholder="password" ng-model="person.password" ng-enter="check()" ng-disabled="fieldsEnabled">
+	    		</div>
+			</div>
+			<div class="form-group">
+				<label for="settingsModalCheck" class="col-sm-2 control-label">Pass Check</label>
+	    		<div class="col-sm-10">
+	      			<input id="settingsModalCheck" type="password" class="form-control" placeholder="password" ng-model="person.check" ng-enter="check()" ng-disabled="fieldsEnabled">
+	    		</div>
+			</div>
+			<center>
+				<p>{{mywarning}}</p>
+				<a href='' ng-click="check()" class="btn btn-danger" ng-disabled="fieldsEnabled">Update</a>
+			</center>
+		</form>
+		<hr>
+		<center>
+			<a href='' class="btn btn-default" ng-click='logout()'>logout</a>
+		</center>
+	</div>
+	<div class="modal-footer">
+		<a href='' class='btn btn-default' ng-click='cancel()'>cancel</a>
+	</div>
+</div>

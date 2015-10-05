@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+
+	<link rel="stylesheet" href="style/xeditable.css">
+	<link rel="stylesheet" type="text/css" href="style/bootstrap.min.css" />	
+	<link rel="stylesheet" href="style/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+	<script src="js/xeditable.min.js"></script>
+	<script src="js/ui-bootstrap.min.js"></script>
+	<script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
+	<script src="js/thumbs.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/controllers.js"></script>
+
+	<title>AtelierDT manager</title>
+</head>
+
+<body ng-controller="bodyController" ng-init="getData()">
+
+<div class="menu-wrapper">
+	<ul class="nav">
+		<li>
+			<a href="#one">
+				{{data.one.title}}
+			</a>
+		</li>
+		<li>
+			<a href="#two">
+				{{data.two.title}}
+			</a>
+		</li>
+		<li>
+			<a href="#three" >
+				{{data.three.title}}
+			</a>
+		</li>
+		<li>
+			<a href="#four">
+				{{data.four.title}}
+			</a>
+		</li>
+		<li>
+			<a href="#five" >
+				{{data.five.title}}
+			</a>
+		</li>
+	</ul>
+</div>
+
+<div class="jumbotron jumbo-image" id="headerBackground">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<img src="images/logo.png" id="logo" class="logoImage">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<center>
+					<ul class="brightnessList">
+						<li>
+							<img src="images/icons/icon-brightness-1.png" class="brightnessButton" ng-class="{brightnessNotSelected: data.logobrightness!=0, brightnessHidden: data.logobrightness==undefined}" ng-click="updateLogoBrightness(0)">
+						</li>
+						<li>
+							<img src="images/icons/icon-brightness-2.png" class="brightnessButton" ng-class="{brightnessNotSelected: data.logobrightness!=1, brightnessHidden: data.logobrightness==undefined}" ng-click="updateLogoBrightness(1)">
+						</li>
+						<li>
+							<img src="images/icons/icon-brightness-3.png" class="brightnessButton" ng-class="{brightnessNotSelected: data.logobrightness!=2, brightnessHidden: data.logobrightness==undefined}" ng-click="updateLogoBrightness(2)">
+						</li>
+					</ul>
+				</center>
+			</div>
+			<div class="col-sm-1">
+				<div class="image-upload">
+				    <label for="header">
+				        <img src="images/icons/icon-plus.png"/>
+				    </label>		    
+			    	<input accept="image/*" type="file" id="header" onchange="angular.element(this).scope().uploadFile(this.files, 'header')"/>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<!-- One -->
+	<div class="row page" style="padding-top:75px;" id="one">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<a class="titleEdit" href="#" editable-text="data.one.title" onbeforesave="updateTitle('one', $data)">{{ data.one.title || 'leeg' }}</a>
+			</center>
+		</div>
+	</div>
+	<div class="row page">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<span e-rows="7" e-cols="80" class="paragraphEdit" editable-textarea="data.one.paragraphProcessed" onbeforesave="updateParagraph($data,'one')">
+					<p ng-repeat="column in data.one.paragraph track by $index">
+						{{column}}
+					</p>
+				</span>
+			</center>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<center>
+				<img src="images/title-header-one.jpg" id="headerOne" class="img-responsive">
+			</center>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<center>
+				<div class="image-upload">
+				    <label for="headerone">
+				        <img src="images/icons/icon-plus.png"/>
+				    </label>		    
+			    	<input accept="image/*" id="headerone" type="file" onchange="angular.element(this).scope().uploadFile(this.files, 'headerone')"/>
+				</div>
+			</center>
+		</div>
+	</div>
+
+	<!-- Two -->
+	<div class="row page" style="padding-top:75px;" id="two">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<a class="titleEdit" href="#" editable-text="data.two.title" onbeforesave="updateTitle('two', $data)">{{ data.two.title || 'leeg' }}</a>
+			</center>
+		</div>
+	</div>
+	<div class="row page">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<span e-rows="7" e-cols="80" class="paragraphEdit" editable-textarea="data.two.paragraphProcessed" onbeforesave="updateParagraph($data,'two')">
+					<p ng-repeat="column in data.two.paragraph track by $index">
+						{{column}}
+					</p>
+				</span>
+			</center>
+		</div>
+	</div>
+
+	<div class='row thumb-row' ng-repeat='rows in imageData.one'>
+		<div class='col-sm-3' ng-repeat='cols in rows'>
+			<center>
+				<div ng-if='cols.type!="new"' ng-mouseenter="col.showItem = true" ng-mouseleave="col.showItem = false">
+					<img ng-src="pics/one/{{cols.id}}/thumb.jpg?cache={{cols.Cache}}" class="img-responsive"/>
+					<div ng-show="col.showItem" class="rolls">
+						<img src="images/icons/icon-edit.png" ng-click="openEditImage(cols.id, 'one', cols.text, cols.x, cols.y, cols.w, cols.h)">
+						<img src="images/icons/icon-view.png" ng-click="showThumb(cols.id, 'one')">
+						<img src="images/icons/icon-cancel2.png" ng-click="openRemoveImage(cols.id, 'one')">
+					</div>
+				</div>
+				<div class="newThumb" ng-if='cols.type=="new"' ng-click="openNewImage('one')">
+					<img src="images/icons/icon-plus.png" />
+				</div>
+			</center>
+		</div>
+	</div>
+
+	<!-- Three -->
+	<div class="row page" style="padding-top:75px;" id="three">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<a class="titleEdit" href="#" editable-text="data.three.title" onbeforesave="updateTitle('three', $data)">{{ data.three.title || 'leeg' }}</a>
+			</center>
+		</div>
+	</div>
+	<div class="row page">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<span e-rows="7" e-cols="80" class="paragraphEdit" editable-textarea="data.three.paragraphProcessed" onbeforesave="updateParagraph($data,'three')">
+					<p ng-repeat="column in data.three.paragraph track by $index">
+						{{column}}
+					</p>
+				</span>
+			</center>
+		</div>
+	</div>
+
+	<div class='row thumb-row' ng-repeat='rows in imageData.two'>
+		<div class='col-sm-3' ng-repeat='cols in rows'>
+			<center>
+				<div ng-if='cols.type!="new"' ng-mouseenter="col.showItem = true" ng-mouseleave="col.showItem = false">
+					<img ng-src="pics/two/{{cols.id}}/thumb.jpg?cache={{cols.Cache}}" class="img-responsive"/>
+					<div ng-show="col.showItem" class="rolls">
+						<img src="images/icons/icon-edit.png" ng-click="openEditImage(cols.id, 'two', cols.text, cols.x, cols.y, cols.w, cols.h)">
+						<img src="images/icons/icon-view.png" ng-click="showThumb(cols.id, 'two')">
+						<img src="images/icons/icon-cancel2.png" ng-click="openRemoveImage(cols.id, 'two')">
+					</div>
+				</div>
+				<div class="newThumb" ng-if='cols.type=="new"' ng-click="openNewImage('two')">
+					<img src="images/icons/icon-plus.png" />
+				</div>
+			</center>
+		</div>
+	</div>
+
+	<!-- Four -->
+	<div class="row page" style="padding-top:75px;" id="four">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<a class="titleEdit" href="#" editable-text="data.four.title" onbeforesave="updateTitle('four', $data)">{{ data.four.title || 'leeg' }}</a>
+			</center>
+		</div>
+	</div>
+	<div class="row page">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<span e-rows="7" e-cols="80" class="paragraphEdit" editable-textarea="data.four.paragraphProcessed" onbeforesave="updateParagraph($data,'four')">
+					<p ng-repeat="column in data.four.paragraph track by $index">
+						{{column}}
+					</p>
+				</span>
+			</center>
+		</div>
+	</div>
+
+	<div class='row thumb-row' ng-repeat='rows in imageData.three'>
+		<div class='col-sm-3' ng-repeat='cols in rows'>
+			<center>
+				<div ng-if='cols.type!="new"' ng-mouseenter="col.showItem = true" ng-mouseleave="col.showItem = false">
+					<img ng-src="pics/three/{{cols.id}}/thumb.jpg?cache={{cols.Cache}}" class="img-responsive"/>
+					<div ng-show="col.showItem" class="rolls">
+						<img src="images/icons/icon-edit.png" ng-click="openEditImage(cols.id, 'three', cols.text, cols.x, cols.y, cols.w, cols.h)">
+						<img src="images/icons/icon-view.png" ng-click="showThumb(cols.id, 'three')">
+						<img src="images/icons/icon-cancel2.png" ng-click="openRemoveImage(cols.id, 'three')">
+					</div>
+				</div>
+				<div class="newThumb" ng-if='cols.type=="new"' ng-click="openNewImage('three')">
+					<img src="images/icons/icon-plus.png" />
+				</div>
+			</center>
+		</div>
+	</div>
+
+	<!-- Five -->
+	<div class="row page" style="padding-top:75px;" id="five">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<a class="titleEdit" href="#" editable-text="data.five.title" onbeforesave="updateTitle('five', $data)">{{ data.five.title || 'leeg' }}</a>
+			</center>
+		</div>
+	</div>
+	<div class="row page">
+		<div class="col-sm-10 col-sm-offset-1">
+			<center>
+				<span e-rows="7" e-cols="80" class="paragraphEdit" editable-textarea="data.five.paragraphProcessed" onbeforesave="updateParagraph($data,'five')">
+					<p ng-repeat="column in data.five.paragraph track by $index">
+						{{column}}
+					</p>
+				</span>
+			</center>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<center>
+				<img src="images/title-header-two.jpg" id="headerTwo" class="img-responsive">
+			</center>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<center>
+				<div class="image-upload">
+				    <label for="headertwo">
+				        <img src="images/icons/icon-plus.png"/>
+				    </label>		    
+			    	<input "image/*" id="headertwo" type="file" onchange="angular.element(this).scope().uploadFile(this.files, 'headertwo')"/>
+				</div>
+			</center>
+		</div>
+	</div>
+
+</div>
+
+<div class="jumbotron footer"></div>
+
+<a class="btn btn-primary settingsButton" ng-click="openSettings()">settings</a>
+
+<div id="fullscreenImage" ng-click="hideThumb()"></div>
+
+</body>
+</html>

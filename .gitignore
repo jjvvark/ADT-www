@@ -1,0 +1,41 @@
+
+# Compiled Object files, Static and Dynamic libs (Shared Objects)
+*.o
+*.a
+*.so
+
+# Folders
+_obj
+_test
+dest
+source/pics
+manager/pics
+
+# Architecture specific extensions/prefixes
+*.[568vq]
+[568vq].out
+
+*.cgo1.go
+*.cgo2.c
+_cgo_defun.c
+_cgo_gotypes.go
+_cgo_export.*
+
+_testmain.go
+
+*.exe
+*.test
+*.prof
+
+# .conf file for local configuration
+*.conf
+
+# local shell scripts
+*.sh
+.DS_Store
+
+# the static updated images in source and manager
+/source/images/title-header-one.jpg
+/source/images/title-header-two.jpg
+/manager/images/title-header-one.jpg
+/manager/images/title-header-two.jpg
